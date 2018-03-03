@@ -10,8 +10,8 @@ const calculateTextColor = function (color) {
     const brightness =
         ((r * 299) + (g * 587) + (b * 114)) / 1000;
     return brightness < 127.5 ?
-        'rgba(255, 255, 255, 1.0)' :
-        'rgba(0, 0, 0, 1.0)';
+        'rgb(255, 255, 255)' :
+        'rgb(33, 35, 38)';
 };
 
 // Algorithm from https://medium.com/the-mvp/finally-a-definitive-way-to-make-gradients-beautiful-6b27af88f5f
