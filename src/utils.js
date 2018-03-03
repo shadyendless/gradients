@@ -13,9 +13,16 @@ exports.calculateTextColor = function (color) {
 // Algorithm from https://medium.com/the-mvp/finally-a-definitive-way-to-make-gradients-beautiful-6b27af88f5f
 exports.calculateGradient = function (color) {
     const convertedColor = tinycolor(color);
+    const format = convertedColor.getFormat();
     const gradientColor = tinycolor(color)
         .spin(25)
         .desaturate(20)
         .lighten(10);
-    return `linear-gradient(15deg, ${convertedColor.toRgbString()}, ${gradientColor.toRgbString()})`;
+
+    let methodName = `toRgbString`;
+    if (format) {
+        methodName = `to${format[0].toUpperCase()}${format.substr(1)}String`;
+    }
+
+    return `linear-gradient(15deg, ${convertedColor[methodName]()}, ${gradientColor[methodName]()})`;
 };
