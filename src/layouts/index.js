@@ -1,13 +1,14 @@
 import Helmet from 'react-helmet'
 import React, { Component } from 'react'
-import { calculateTextColor, calculateGradient } from '../utils';
 import Navigation from '../components/Navigation';
+import GradientHeader from '../components/GradientHeader';
+import { calculateTextColor, calculateGradient } from '../utils';
 
 import '../sass/main.scss';
 
 class TemplateWrapper extends Component {
   state = {
-    backgroundColor: 'rgba(255, 0, 0, 1.0)'
+    backgroundColor: 'rgb(255, 0, 0)'
   };
 
   setBackgroundColor = (color) => {
@@ -32,10 +33,10 @@ class TemplateWrapper extends Component {
           ]}
         />
         <Navigation fontColor={navColor} />
-        <div className="gradient-display" style={{ background: gradient }}>
-          <h1 className="input-header" style={{ color: navColor }}>Edit Color</h1>
-          <input className="color-input" style={{ color: navColor }} type="text" value={backgroundColor} onChange={(event) => this.setBackgroundColor(event.target.value)} />
-        </div>
+        <GradientHeader gradient={gradient}
+          backgroundColor={backgroundColor}
+          navColor={navColor}
+          setBackgroundColor={this.setBackgroundColor} />
         {children()}
       </div>
     );
