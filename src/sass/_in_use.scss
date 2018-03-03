@@ -16,6 +16,11 @@
     margin: 0 auto 3em auto;
     min-height: 230px;
     width: 100%;
+
+    @include on-mq(medium) {
+        flex-direction: column;
+        min-height: 600px;
+    }
 }
 
 .in-use-section {
@@ -29,6 +34,10 @@
 
     padding: 1em;
     margin: 0 0 1em 0;
+
+    @include on-mq(medium) {
+        min-height: 130px;
+    }
     
     &::before {
         content: '';
