@@ -39,22 +39,41 @@
     z-index: 10;
 }
 
+.input-wrapper {
+    display: flex;
+    margin-bottom: 1em;
+    padding: 0 0 0.5em 0;
+    z-index: 10;
+}
+
 .color-input {
     background: transparent;
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0);
+    display: inline-block;
     font-family: $mono-font;
     font-size: 1.5em;
     font-weight: 200;
-    margin-bottom: 1em;
     outline: none;
-    padding: 0 0 0.5em 0;
     transition: all 0.25s;
     width: 100%;
     z-index: 10;
 
     &:focus {
         border-bottom: 1px solid white;
+    }
+}
+
+.randomize-color {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    opacity: 0.5;
+    transition: all 0.25s;
+
+    &:hover {
+        opacity: 1;
     }
 }
 

@@ -17,21 +17,25 @@ class TemplateWrapper extends Component {
     this.setState(() => ({
       backgroundColor: color
     }));
-  }
+  };
+
+  randomizeBackgroundColor = () => {
+    const formatString = toFormatString(tinycolor(this.state.backgroundColor).getFormat());
+    this.setState((prevState, props) => ({
+      backgroundColor: tinycolor.random()[formatString]()
+    }));
+  };
 
   componentDidMount = () => {
     document.addEventListener('keyup', (event) => {
       if (event.which === 82) {
-        const formatString = toFormatString(tinycolor(this.state.backgroundColor).getFormat());
-        this.setState((prevState, props) => ({
-          backgroundColor: tinycolor.random()[formatString]()
-        }));
+        this.randomizeBackgroundColor();
       }
     });
 
     if (window.location.hash !== '')
       this.setBackgroundColor(getInitialBackgroundColor(window.location.hash));
-  }
+  };
 
   render() {
     const { children } = this.props;
@@ -57,7 +61,8 @@ class TemplateWrapper extends Component {
         <GradientHeader gradient={gradient}
           backgroundColor={backgroundColor || 'rgb(255, 255, 255)'}
           navColor={navColor}
-          setBackgroundColor={this.setBackgroundColor} />
+          setBackgroundColor={this.setBackgroundColor}
+          randomizeBackgroundColor={this.randomizeBackgroundColor} />
         <GradientCode gradient={gradient} />
         {children()}
       </div>
