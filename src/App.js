@@ -1,13 +1,13 @@
 import tinycolor from 'tinycolor2';
 import React, { Component } from 'react'
-import InUse from '../components/InUse';
-import Footer from '../components/Footer';
-import Navigation from '../components/Navigation';
-import GradientCode from '../components/GradientCode';
-import GradientHeader from '../components/GradientHeader';
-import { calculateTextColor, calculateGradient, getInitialBackgroundColor, getRandomColor, toFormatString } from '../utils';
+import InUse from './components/InUse';
+import Footer from './components/Footer';
+import Navigation from './components/Navigation';
+import GradientCode from './components/GradientCode';
+import GradientHeader from './components/GradientHeader';
+import { calculateTextColor, calculateGradient, getInitialBackgroundColor, getRandomColor, toFormatString } from './utils';
 
-class IndexPage extends Component {
+class App extends Component {
   state = {
     backgroundColor: getRandomColor()
   };
@@ -37,13 +37,12 @@ class IndexPage extends Component {
   };
 
   render() {
-    const { children } = this.props;
     const { backgroundColor } = this.state;
     const navColor = calculateTextColor(backgroundColor);
     const gradient = calculateGradient(backgroundColor);
 
     return (
-      <div className="site-wrapper is-flex flex-column">
+      <div class="site-wrapper is-flex flex-column">
         <Navigation fontColor={navColor} />
         <GradientHeader gradient={gradient}
           backgroundColor={backgroundColor}
@@ -58,4 +57,4 @@ class IndexPage extends Component {
   }
 }
 
-export default IndexPage
+export default App;

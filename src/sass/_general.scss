@@ -5,7 +5,7 @@
 
 html,
 body,
-#___gatsby {
+#root {
     height: 100%;
     position: relative;
 }
@@ -16,25 +16,6 @@ body,
 }
 
 body {
-    &::after {
-        align-items: center;
-        animation: fade 1s;
-        animation-fill-mode: forwards;
-        background-color: white;
-        bottom: 0;
-        content: 'Gradients';
-        display: flex;
-        font-size: 2em;
-        font-weight: bold;
-        justify-content: center;
-        left: 0;
-        right: 0;
-        top: 0;
-        pointer-events: none;
-        position: fixed;
-        z-index: 15;
-    }
-
     &.noscroll {
         overflow: hidden;
     }
@@ -56,10 +37,4 @@ a {
 
 .site-wrapper {
     height: 100%;
-}
-
-@keyframes fade {
-    0% { opacity: 1; }
-    80% { opacity: 1; }
-    100% { opacity: 0; }
 }

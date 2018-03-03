@@ -1,11 +1,10 @@
-import Link from 'gatsby-link';
-import React, { Component } from 'react';
+import React from 'react';
 
 const Navigation = ({ fontColor }) => (
-  <nav className="nav container">
-    <div className="is-flex justify-content-space-between align-items-center">
-      <div className="logo" style={{ color: fontColor }}>
-        <Link to="/">Gradients</Link>
+  <nav class="nav container">
+    <div class="is-flex justify-content-space-between align-items-center">
+      <div class="logo" style={{ color: fontColor }}>
+        <a href="https://www.jacob-foster.com/gradients">Gradients</a>
         <span>by <a href="https://www.jacob-foster.com/">Jacob Foster</a></span>
       </div>
     </div>

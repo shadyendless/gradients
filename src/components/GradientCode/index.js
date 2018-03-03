@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ClipboardJS from 'clipboard';
 
@@ -32,15 +32,15 @@ class GradientCode extends Component {
         const { tooltipShown } = this.state;
 
         return (
-            <div className="gradient-code">
+            <div class="gradient-code">
                 {gradient}
-                <button className="copy-button"
+                <button class="copy-button"
                     data-clipboard-text={gradient}
                     ref={(input) => { this.copyButton = input }}
                     onClick={this.showTooltip}>
-                    <i className="far fa-copy"></i>
+                    <i class="far fa-copy"></i>
                 </button>
-                <div className={`copy-message ${tooltipShown ? 'active' : ''}`}>Code Copied!</div>
+                <div class={`copy-message ${tooltipShown ? 'active' : ''}`}>Code Copied!</div>
             </div>
         );
     }
