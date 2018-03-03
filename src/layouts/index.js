@@ -1,6 +1,7 @@
 import Helmet from 'react-helmet'
 import React, { Component } from 'react'
 import Navigation from '../components/Navigation';
+import GradientCode from '../components/GradientCode';
 import GradientHeader from '../components/GradientHeader';
 import { calculateTextColor, calculateGradient } from '../utils';
 
@@ -37,6 +38,7 @@ class TemplateWrapper extends Component {
           backgroundColor={backgroundColor}
           navColor={navColor}
           setBackgroundColor={this.setBackgroundColor} />
+        <GradientCode gradient={gradient} />
         {children()}
       </div>
     );
