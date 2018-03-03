@@ -4,25 +4,13 @@ import React, { Component } from 'react'
 import Navigation from '../components/Navigation';
 import GradientCode from '../components/GradientCode';
 import GradientHeader from '../components/GradientHeader';
-import { calculateTextColor, calculateGradient, toFormatString } from '../utils';
+import { calculateTextColor, calculateGradient, getInitialBackgroundColor, getRandomColor, toFormatString } from '../utils';
 
 import '../sass/main.scss';
 
-const getInitialBackgroundColor = function () {
-  const hash = location.hash;
-  if (hash !== '') {
-    const convertedColor = tinycolor(hash);
-    if (convertedColor.getFormat()) {
-      return convertedColor[toFormatString(convertedColor.getFormat())]();
-    }
-  }
-
-  return tinycolor.random().toRgbString();
-};
-
 class TemplateWrapper extends Component {
   state = {
-    backgroundColor: getInitialBackgroundColor()
+    backgroundColor: null
   };
 
   setBackgroundColor = (color) => {
@@ -31,7 +19,7 @@ class TemplateWrapper extends Component {
     }));
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     document.addEventListener('keyup', (event) => {
       if (event.which === 82) {
         const formatString = toFormatString(tinycolor(this.state.backgroundColor).getFormat());
@@ -40,13 +28,21 @@ class TemplateWrapper extends Component {
         }));
       }
     });
+
+    if (window.location.hash !== '')
+      this.setBackgroundColor(getInitialBackgroundColor(window.location.hash));
   }
 
   render() {
     const { children } = this.props;
-    const { backgroundColor } = this.state;
-    const navColor = calculateTextColor(backgroundColor);
-    const gradient = calculateGradient(backgroundColor);
+    let { backgroundColor } = this.state;
+
+    if (backgroundColor === null) {
+      this.setBackgroundColor(getRandomColor());
+    }
+
+    const navColor = calculateTextColor(backgroundColor || 'rgb(255, 255, 255)');
+    const gradient = calculateGradient(backgroundColor || 'rgb(255, 255, 255)');
 
     return (
       <div className="site-wrapper is-flex flex-column">
@@ -59,7 +55,7 @@ class TemplateWrapper extends Component {
         />
         <Navigation fontColor={navColor} />
         <GradientHeader gradient={gradient}
-          backgroundColor={backgroundColor}
+          backgroundColor={backgroundColor || 'rgb(255, 255, 255)'}
           navColor={navColor}
           setBackgroundColor={this.setBackgroundColor} />
         <GradientCode gradient={gradient} />

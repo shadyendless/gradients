@@ -1,12 +1,12 @@
 .gradient-display {
-    justify-content: flex-end;
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
     min-height: 78%;
-    transition: all 0.5s;
+    padding: 0 10%;
+    position: relative;
     width: 100%;
     z-index: 0;
-    padding: 0 10%;
 
     @include on-mq(medium) {
         min-height: 60%;
@@ -15,6 +15,20 @@
     @include on-mq(small) {
         max-width: 0 2.5%;
     }
+
+    &::after {
+        animation: fade 0.75s;
+        animation-fill-mode: forwards;
+        background-color: white;
+        bottom: 0;
+        content: '';
+        display: block;
+        left: 0;
+        right: 0;
+        top: 0;
+        position: absolute;
+        z-index: 1;
+    }
 }
 
 .input-header {
@@ -22,6 +36,7 @@
     margin: 0 0 1em 0;
     padding: 0;
     text-transform: uppercase;
+    z-index: 10;
 }
 
 .color-input {
@@ -34,8 +49,9 @@
     margin-bottom: 1em;
     outline: none;
     padding: 0 0 0.5em 0;
-    width: 100%;
     transition: all 0.25s;
+    width: 100%;
+    z-index: 10;
 
     &:focus {
         border-bottom: 1px solid white;
@@ -85,6 +101,11 @@
     &.active {
         animation: copy-message-fade 0.4s;
     }
+}
+
+@keyframes fade {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
 }
 
 @keyframes copy-message-fade {

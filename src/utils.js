@@ -26,4 +26,24 @@ const calculateGradient = function (color) {
     return `linear-gradient(15deg, ${convertedColor[methodName]()}, ${gradientColor[methodName]()})`;
 };
 
-export { toFormatString, calculateTextColor, calculateGradient };
+
+const getInitialBackgroundColor = function (hash) {
+    if (hash !== '') {
+        const convertedColor = tinycolor(hash);
+        if (convertedColor.getFormat()) {
+            return convertedColor[toFormatString(convertedColor.getFormat())]();
+        }
+    }
+
+    return tinycolor.random().toRgbString();
+}
+
+const getRandomInt = function (max) {
+    return Math.floor(Math.random() * Math.floor(max));
+}
+
+const getRandomColor = function () {
+    return `rgb(${getRandomInt(255)}, ${getRandomInt(255)}, ${getRandomInt(255)})`;
+}
+
+export { calculateTextColor, calculateGradient, getInitialBackgroundColor, getRandomColor, toFormatString };
