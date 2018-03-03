@@ -1,21 +1,45 @@
 import Helmet from 'react-helmet'
+import tinycolor from 'tinycolor2';
 import React, { Component } from 'react'
 import Navigation from '../components/Navigation';
 import GradientCode from '../components/GradientCode';
 import GradientHeader from '../components/GradientHeader';
-import { calculateTextColor, calculateGradient } from '../utils';
+import { calculateTextColor, calculateGradient, toFormatString } from '../utils';
 
 import '../sass/main.scss';
 
+const getInitialBackgroundColor = function () {
+  const hash = location.hash;
+  if (hash !== '') {
+    const convertedColor = tinycolor(hash);
+    if (convertedColor.getFormat()) {
+      return convertedColor[toFormatString(convertedColor.getFormat())]();
+    }
+  }
+
+  return tinycolor.random().toRgbString();
+};
+
 class TemplateWrapper extends Component {
   state = {
-    backgroundColor: 'rgb(255, 0, 0)'
+    backgroundColor: getInitialBackgroundColor()
   };
 
   setBackgroundColor = (color) => {
     this.setState(() => ({
       backgroundColor: color
     }));
+  }
+
+  componentDidMount() {
+    document.addEventListener('keyup', (event) => {
+      if (event.which === 82) {
+        const formatString = toFormatString(tinycolor(this.state.backgroundColor).getFormat());
+        this.setState((prevState, props) => ({
+          backgroundColor: tinycolor.random()[formatString]()
+        }));
+      }
+    });
   }
 
   render() {

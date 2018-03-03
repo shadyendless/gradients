@@ -1,6 +1,10 @@
 import tinycolor from 'tinycolor2';
 
-exports.calculateTextColor = function (color) {
+const toFormatString = function (format) {
+    return format ? `to${format[0].toUpperCase()}${format.substr(1)}String` : `toRgbString`;
+}
+
+const calculateTextColor = function (color) {
     const convertedColor = tinycolor(color);
     const { r, g, b } = convertedColor.toRgb();
     const brightness =
@@ -11,18 +15,15 @@ exports.calculateTextColor = function (color) {
 };
 
 // Algorithm from https://medium.com/the-mvp/finally-a-definitive-way-to-make-gradients-beautiful-6b27af88f5f
-exports.calculateGradient = function (color) {
+const calculateGradient = function (color) {
     const convertedColor = tinycolor(color);
-    const format = convertedColor.getFormat();
     const gradientColor = tinycolor(color)
         .spin(25)
         .desaturate(20)
         .lighten(10);
 
-    let methodName = `toRgbString`;
-    if (format) {
-        methodName = `to${format[0].toUpperCase()}${format.substr(1)}String`;
-    }
-
+    const methodName = toFormatString(convertedColor.getFormat());
     return `linear-gradient(15deg, ${convertedColor[methodName]()}, ${gradientColor[methodName]()})`;
 };
+
+export { toFormatString, calculateTextColor, calculateGradient };

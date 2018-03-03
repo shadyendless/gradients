@@ -8,7 +8,8 @@
     right: 0;
 
     @include on-mq(small) {
-        padding: 1em 2em;
+        font-size: 0.75em;
+        padding: 2em 2em;
     }
 
     z-index: 10;
@@ -23,5 +24,9 @@
         font-size: 1rem;
         font-weight: normal;
         margin-left: 1rem;
+
+        @include on-mq(small) {
+            margin-left: 0.75rem;
+        }
     }
 }

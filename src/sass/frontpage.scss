@@ -2,11 +2,15 @@
     justify-content: flex-end;
     display: flex;
     flex-direction: column;
-    min-height: 80%;
+    min-height: 78%;
     transition: all 0.5s;
     width: 100%;
     z-index: 0;
     padding: 0 10%;
+
+    @include on-mq(medium) {
+        min-height: 60%;
+    }
 
     @include on-mq(small) {
         max-width: 0 2.5%;
@@ -43,7 +47,7 @@
     color: rgba(0, 0, 0, 0.75);
     font-family: $mono-font;
     margin: 4em auto;
-    padding: 2em 3em;
+    padding: 2em 100px 2em 3em;
     position: relative;
     text-align: center;
     width: 75%;
