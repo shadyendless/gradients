@@ -1,9 +1,9 @@
 .header {
     text-align: center;
-    margin: 1.5em 0;
+    margin: 1.5em 0 0 0;
 }
 
-.subheader {
+.in-use-label {
     justify-self: flex-end;
     color: $light;
     font-size: 1em;
@@ -12,52 +12,63 @@
 }
 
 .in-use-wrapper {
+    align-items: center;
     display: flex;
-    margin: 0 auto 3em auto;
-    min-height: 230px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative;
     width: 100%;
-
-    @include on-mq(medium) {
-        flex-direction: column;
-        min-height: 600px;
-    }
 }
 
 .in-use-section {
+    align-self: stretch;
     align-items: center;
-    justify-content: center;
-    display: flex;
-    min-height: 230px;
-    flex-direction: column;
     justify-content: space-between;
-    min-width: 33%;
-
-    padding: 1em;
-    margin: 0 0 1em 0;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 33%;
+    position: relative;
+    text-align: center;
+    margin-top: 2em;
 
     @include on-mq(medium) {
-        min-height: 130px;
+        flex-basis: 50%;
     }
-    
+
+    @include on-mq(small) {
+        flex-basis: 100%;
+    }
+
+    &.wide {
+        flex-basis: 45%;
+
+        @include on-mq(medium) {
+            flex-basis: 100%;
+        }
+    }
+
     &::before {
-        content: '';
+        content: ''
     }
 }
 
 .in-use-content {
-    align-self: center;
-
     &.label {
         border-radius: 2px;
+        box-shadow: $box-normal;
         color: inherit;
-        font-size: 0.75em;
-        padding: 0.3em .8em;
+        font-family: sans-serif;
+        font-size: 0.5em;
+        font-weight: bold;
+        letter-spacing: 1px;
+        padding: 0.5em 1.25em;
     }
     
     &.button {
         border-radius: 4px;
         box-shadow: $box-normal;
         cursor: pointer;
+        font-family: sans-serif;
         font-weight: bold;
         padding: 1em 1.5em;
         transition: all 0.25s;
@@ -70,8 +81,27 @@
     
     &.image {
         background-blend-mode: color;
+        box-shadow: $box-normal;
         display: block;
         height: 128px;
         width: 128px;
+    }
+
+    &.message {
+        border-radius: 20px 20px 20px 0px;
+        box-shadow: $box-normal;
+        font-family: sans-serif;
+        line-height: 1.5;
+        padding: 1em 2em;
+        text-align: left;
+    }
+
+    &.status {
+        box-shadow: $box-normal;
+        font-family: sans-serif;
+        font-size: 1.5em;
+        font-weight: bold;
+        line-height: 1.5;
+        padding: 1.5em 3em;
     }
 }
