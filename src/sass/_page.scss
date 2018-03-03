@@ -1,0 +1,128 @@
+.page {
+    display: grid;
+    grid-template-columns: 2fr 1fr 7fr 2fr;
+
+    margin-bottom: 2em;
+
+    @include above-mq(xlarge) {
+        grid-template-columns: 1fr 1fr 9fr 1fr;
+    }
+
+    @include on-mq(medium) {
+        display: flex;
+        flex-direction: column;
+    }
+
+    @include on-mq-h(small) {
+        display: flex;
+        flex-direction: column;
+
+        padding-top: 1em;
+    }
+}
+
+.page-header {
+    grid-column: 3;
+    margin: 1em 0 0 3em;
+
+    & h1 {
+        font-size: 1.5em;
+        font-weight: 800;
+        letter-spacing: 1px;
+        text-shadow: 1px 1px 5px rgba(white, 0.25), 0px 0px 10px rgba(white, 0.5);
+    }
+
+    @include on-mq(medium) {
+        grid-column: 1;
+        grid-row: 2;
+
+        margin: 0.5em 0 0 0;
+        text-align: center;
+    }
+}
+
+.page-left {
+    grid-column: 1;
+    grid-row-start: 2;
+    grid-row-end: 5;
+
+    @include on-mq(medium) {
+        text-align: center;
+        margin-bottom: 1em;
+    }
+}
+
+.author-image {
+    border-radius: 50%;
+    margin: 0 auto;
+
+    width: 250px;
+    height: 250px;
+
+    @include on-mq(xsmall) {
+        height: 125px;
+        width: 125px;
+    }
+
+    @include on-mq-h(small) {
+        margin: 0;
+        height: 125px;
+        width: 125px;
+    }
+}
+
+.page-text {
+    grid-column: 3 / 4;
+
+    background: white;
+    box-shadow: $box-normal;
+    border-radius: 2px;
+    text-align: justify;
+    padding: 3em 4em;
+
+    &:not(:only-of-type) {
+        margin-bottom: 2em;
+    }
+
+    & p {
+        color: darken($light, 10%);
+        font-family: $body-font;
+        font-size: 1.15em;
+        line-height: 1.5;
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        & span,
+        & em,
+        & strong {
+            font-family: inherit;
+        }
+
+        @include on-mq(small) {
+            font-size: 1em;
+        }
+    }
+
+    @include on-mq(large) {
+        grid-column: 3 / 5;
+    }
+
+    @include on-mq(medium) {
+        grid-column: 1;
+        grid-row: 3;
+    }
+
+    @include on-mq(small) {
+        padding: 3em 2em;
+    }
+
+    @include on-mq-h(small) {
+        grid-column: 1 / 4;
+    }
+}

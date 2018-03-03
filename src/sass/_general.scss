@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+    font-family: $header-font;
+}
+
+html,
+body,
+#___gatsby {
+    height: 100%;
+    position: relative;
+}
+
+body,
+.smoothscroll {
+    scroll-behavior: smooth;
+}
+
+body {
+    &.noscroll {
+        overflow: hidden;
+    }
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 80%;
+
+    @include on-mq(small) {
+        max-width: 95%;
+    }
+}
+
+.site-wrapper {
+    height: 100%;
+}

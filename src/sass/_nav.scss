@@ -1,0 +1,27 @@
+.nav {
+    color: inherit;
+    padding: 1em 0;
+    position: absolute;
+    transition: all 0.5s;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    @include on-mq(small) {
+        padding: 1em 2em;
+    }
+
+    z-index: 10;
+}
+
+.logo {
+    color: inherit;
+    font-size: 2em;
+    font-weight: bold;
+
+    & span {
+        font-size: 1rem;
+        font-weight: normal;
+        margin-left: 1rem;
+    }
+}

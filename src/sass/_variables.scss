@@ -1,0 +1,22 @@
+/* Fonts */
+$header-font: 'Nunito', sans-serif;
+$mono-font: 'Source Code Pro', 'Monaco', 'Consolas', 'Courier New', monospace;
+
+/* Colors */
+$dark:          rgb(33, 35, 38);
+$light:         rgb(111, 117, 128);
+
+$light-blue:    rgb(64, 142, 191);
+$dark-blue:     rgb(1, 26, 44);
+
+/* Breakpoints */
+$xs-bk: 320px;
+$sm-bk: 485px;
+$md-bk: 768px;
+$lg-bk: 1280px;
+$xl-bk: 2560px;
+$xxl-bk: 3840px;
+
+/* Box Shadows */
+$box-normal: 0 2px 15px rgba($dark, 0.1);
+$box-hover: 0 2px 15px rgba($dark, 0.15);

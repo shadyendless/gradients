@@ -1,0 +1,39 @@
+.gradient-display {
+    justify-content: flex-end;
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    transition: all 0.5s;
+    width: 100%;
+    z-index: 0;
+    padding: 0 10%;
+
+    @include on-mq(small) {
+        max-width: 0 2.5%;
+    }
+}
+
+.input-header {
+    font-size: 0.75em;
+    margin: 0 0 1em 0;
+    padding: 0;
+    text-transform: uppercase;
+}
+
+.color-input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0);
+    font-family: $mono-font;
+    font-size: 1.5em;
+    font-weight: 200;
+    margin-bottom: 1em;
+    outline: none;
+    padding: 0 0 0.5em 0;
+    width: 100%;
+    transition: all 0.25s;
+
+    &:focus {
+        border-bottom: 1px solid white;
+    }
+}

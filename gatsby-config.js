@@ -1,6 +1,11 @@
 module.exports = {
+  pathPrefix: `/gradients`,
   siteMetadata: {
-    title: 'Gatsby Default Starter',
+    title: `Gradient Generator`,
   },
-  plugins: ['gatsby-plugin-react-helmet'],
+  plugins: [
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-react-next`,
+    `gatsby-plugin-sass`
+  ],
 };
