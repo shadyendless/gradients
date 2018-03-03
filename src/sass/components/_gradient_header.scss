@@ -17,11 +17,16 @@
     }
 
     &.fixed {
-        left: 0;
-        position: fixed;
-        right: 0;
-        top: -48%;
-        z-index: 50;
+        display: none;
+
+        @include on-mq(medium) {
+            display: flex;
+            left: 0;
+            position: fixed;
+            right: 0;
+            top: -48%;
+            z-index: 50;
+        }
     }
 }
 
@@ -64,6 +69,7 @@
     outline: none;
     opacity: 0.5;
     transition: all 0.25s;
+    width: 5em;
 
     &:hover {
         opacity: 1;
