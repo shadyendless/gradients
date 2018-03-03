@@ -1,6 +1,7 @@
 import tinycolor from 'tinycolor2';
 import React, { Component } from 'react'
 import InUse from '../components/InUse';
+import Footer from '../components/Footer';
 import Navigation from '../components/Navigation';
 import GradientCode from '../components/GradientCode';
 import GradientHeader from '../components/GradientHeader';
@@ -51,6 +52,7 @@ class IndexPage extends Component {
           randomizeBackgroundColor={this.randomizeBackgroundColor} />
         <GradientCode gradient={gradient} />
         <InUse gradient={gradient} navColor={navColor} />
+        <Footer gradient={gradient} navColor={navColor} />
       </div>
     );
   }

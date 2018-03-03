@@ -1,0 +1,29 @@
+.footer {
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+
+    text-align: center;
+    width: 100%;
+}
+
+.footer-link {
+    border-radius: 4px;
+    box-shadow: $box-normal;
+    padding: 1em 2em;
+    margin: 15em 0 3em 0;
+    transition: all 0.25s;
+    
+    &:hover {
+        box-shadow: $box-hover;
+        transform: translateY(-1px);
+    }
+
+    & .fa-github {
+        color: #333;
+    }
+
+    & .fa-paypal {
+        color: #009cde;
+    }
+}
