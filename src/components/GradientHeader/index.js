@@ -1,24 +1,58 @@
-import React from 'react'
 import PropTypes from 'prop-types';
+import React, { Component } from 'react'
+import GradientDisplay from '../GradientDisplay';
+import Observer from 'react-intersection-observer';
 
-const GradientHeader = ({ gradient, navColor, backgroundColor, setBackgroundColor, randomizeBackgroundColor }) => (
-    <div class="gradient-display" style={{ background: gradient }}>
-        <h1 class="input-header" style={{ color: navColor }}>Edit Color</h1>
-        <div class="input-wrapper">
-            <input spellCheck="false" autoComplete="false" class="color-input" style={{ color: navColor }} type="text" value={backgroundColor} onChange={(event) => setBackgroundColor(event.target.value)} />
-            <button class="randomize-color" style={{ color: navColor }} onClick={randomizeBackgroundColor}>
-                <i class="fas fa-sync"></i>
-            </button>
-        </div>
-    </div>
-);
+class GradientHeader extends Component {
+    static propTypes = {
+        gradient: PropTypes.string.isRequired,
+        navColor: PropTypes.string.isRequired,
+        backgroundColor: PropTypes.string.isRequired,
+        setBackgroundColor: PropTypes.func.isRequired,
+        randomizeBackgroundColor: PropTypes.func.isRequired
+    };
 
-GradientHeader.propTypes = {
-    gradient: PropTypes.string.isRequired,
-    navColor: PropTypes.string.isRequired,
-    backgroundColor: PropTypes.string.isRequired,
-    setBackgroundColor: PropTypes.func.isRequired,
-    randomizeBackgroundColor: PropTypes.func.isRequired
+    state = {
+        isFixed: false
+    };
+
+    setHeaderFixed = (fixed) => {
+        this.setState(() => ({
+            isFixed: fixed
+        }));
+    };
+
+    render() {
+        const { gradient, navColor, backgroundColor, setBackgroundColor, randomizeBackgroundColor } = this.props;
+        const { isFixed } = this.state;
+
+        return (
+            <>
+                <div class="header-watch">
+                    <Observer onChange={(inView) => { this.setHeaderFixed(!inView); }}>
+                    </Observer>
+                </div>
+                <GradientDisplay
+                    backgroundColor={backgroundColor}
+                    isFixed={false}
+                    gradient={gradient}
+                    navColor={navColor}
+                    randomizeBackgroundColor={randomizeBackgroundColor}
+                    setBackgroundColor={setBackgroundColor} />
+                {(
+                    isFixed ?
+                        <GradientDisplay
+                            backgroundColor={backgroundColor}
+                            isFixed={true}
+                            gradient={gradient}
+                            navColor={navColor}
+                            randomizeBackgroundColor={randomizeBackgroundColor}
+                            setBackgroundColor={setBackgroundColor} />
+                        : <></>
+                )}
+            </>
+        );
+    }
 };
 
 export default GradientHeader

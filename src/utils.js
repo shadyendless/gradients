@@ -38,12 +38,4 @@ const getInitialBackgroundColor = function (hash) {
     return tinycolor.random().toRgbString();
 }
 
-const getRandomInt = function (max) {
-    return Math.floor(Math.random() * Math.floor(max));
-}
-
-const getRandomColor = function () {
-    return `rgb(${getRandomInt(255)}, ${getRandomInt(255)}, ${getRandomInt(255)})`;
-}
-
-export { calculateTextColor, calculateGradient, getInitialBackgroundColor, getRandomColor, toFormatString };
+export { calculateTextColor, calculateGradient, getInitialBackgroundColor, toFormatString };

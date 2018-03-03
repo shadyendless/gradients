@@ -7001,6 +7001,10 @@ react-error-overlay@5.0.0-next.47d2d941:
   version "5.0.0-next.47d2d941"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-5.0.0-next.47d2d941.tgz#416a337e232f8c3e3296181e03771ddac35522dd"
 
+react-intersection-observer@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/react-intersection-observer/-/react-intersection-observer-3.0.3.tgz#3df67f413c36c28b02426e7fdbf9670790fb50ab"
+
 react-scripts@^2.0.0-next.47d2d941:
   version "2.0.0-next.47d2d941"
   resolved "https://registry.yarnpkg.com/react-scripts/-/react-scripts-2.0.0-next.47d2d941.tgz#912b49f1e41f97a72b467878e8d7d5a09fe6f5af"

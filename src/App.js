@@ -5,11 +5,11 @@ import Footer from './components/Footer';
 import Navigation from './components/Navigation';
 import GradientCode from './components/GradientCode';
 import GradientHeader from './components/GradientHeader';
-import { calculateTextColor, calculateGradient, getInitialBackgroundColor, getRandomColor, toFormatString } from './utils';
+import { calculateTextColor, calculateGradient, getInitialBackgroundColor, toFormatString } from './utils';
 
 class App extends Component {
   state = {
-    backgroundColor: getRandomColor()
+    backgroundColor: tinycolor.random().toRgbString()
   };
 
   setBackgroundColor = (color) => {
@@ -52,7 +52,7 @@ class App extends Component {
         <GradientCode gradient={gradient} />
         <InUse gradient={gradient} navColor={navColor} />
         <Footer gradient={gradient} navColor={navColor} />
-      </div>
+      </div >
     );
   }
 }
