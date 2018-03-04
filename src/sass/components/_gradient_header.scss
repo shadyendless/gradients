@@ -59,7 +59,13 @@
     width: 100%;
 
     &:focus {
-        border-bottom: 1px solid white;
+        &.light {
+            border-bottom: 1px solid rgb(255, 255, 255);
+        }
+
+        &.dark {
+            border-bottom: 1px solid rgb(33, 35, 38);
+        }
     }
 }
 
