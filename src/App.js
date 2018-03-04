@@ -34,7 +34,7 @@ class App extends Component {
     });
 
     if (window.location.search !== '') {
-      this.setBackgroundColor(getInitialBackgroundColor(window.location.search.substr(1)));
+      this.setBackgroundColor(getInitialBackgroundColor(decodeURIComponent(window.location.search.substr(1))));
     }
   };
 
