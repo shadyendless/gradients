@@ -36,7 +36,7 @@ class App extends Component {
 
   componentDidMount() {
     document.addEventListener('keyup', (event) => {
-      if (event.which === 82) {
+      if (event.which === 82 && !document.activeElement.classList.contains('color-input')) {
         this.randomizeBackgroundColor();
       }
     });
