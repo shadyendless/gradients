@@ -26,6 +26,13 @@ const calculateGradient = function (color) {
     return `linear-gradient(15deg, ${convertedColor[methodName]()}, ${gradientColor[methodName]()})`;
 };
 
+const getGradientEnd = function (color) {
+    return tinycolor(color)
+        .spin(25)
+        .desaturate(20)
+        .lighten(10);
+};
+
 
 const getInitialBackgroundColor = function (hash) {
     if (hash !== '') {
@@ -38,4 +45,4 @@ const getInitialBackgroundColor = function (hash) {
     return tinycolor.random().toRgbString();
 }
 
-export { calculateTextColor, calculateGradient, getInitialBackgroundColor, toFormatString };
+export { calculateTextColor, calculateGradient, getGradientEnd, getInitialBackgroundColor, toFormatString };

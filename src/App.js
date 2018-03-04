@@ -1,11 +1,12 @@
 import tinycolor from 'tinycolor2';
-import React, { Component } from 'react'
+import { Helmet } from 'react-helmet';
 import InUse from './components/InUse';
 import Footer from './components/Footer';
-import Navigation from './components/Navigation';
+import React, { Component } from 'react'
 import CopyBox from './components/CopyBox';
+import Navigation from './components/Navigation';
 import GradientHeader from './components/GradientHeader';
-import { calculateTextColor, calculateGradient, getInitialBackgroundColor, toFormatString } from './utils';
+import { calculateTextColor, calculateGradient, getGradientEnd, getInitialBackgroundColor, toFormatString } from './utils';
 
 class App extends Component {
   state = {
@@ -32,17 +33,37 @@ class App extends Component {
       }
     });
 
-    if (window.location.hash !== '')
+    if (window.location.hash !== '') {
       this.setBackgroundColor(getInitialBackgroundColor(window.location.hash));
+    }
   };
 
   render() {
     const { backgroundColor } = this.state;
     const navColor = calculateTextColor(backgroundColor);
     const gradient = calculateGradient(backgroundColor);
+    const gradientStart = tinycolor(backgroundColor);
+    const gradientEnd = getGradientEnd(backgroundColor);
+
+    const contentImage = `http://do.jacob-foster.com/gradient?start=${gradientStart.toHex()}&end=${gradientEnd.toHex()}`;
+    const contentTitle = `#${gradientStart.toHex().toUpperCase()} to #${gradientEnd.toHex().toUpperCase()}`;
+    const contentUrl = `https://gradients.jacob-foster.com#${backgroundColor.replace(/\s/g, '')}`;
 
     return (
       <div class="site-wrapper is-flex flex-column">
+        <Helmet>
+          <meta property="og:url" content={contentUrl} />
+          <meta property="og:title" content={contentTitle} />
+          <meta property="og:description" content="Generated with Gradients by Jacob Foster" />
+          <meta property="og:image" content={contentImage} />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="1200" />
+          <meta name="twitter:card" content="summary" />
+          <meta name="twitter:site" content="@im_jacobf" />
+          <meta name="twitter:title" content={contentTitle} />
+          <meta name="twitter:description" content="Generated with Gradients by Jacob Foster" />
+          <meta name="twitter:image" content={contentImage} />
+        </Helmet>
         <Navigation fontColor={navColor} />
         <GradientHeader gradient={gradient}
           backgroundColor={backgroundColor}
