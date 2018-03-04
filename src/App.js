@@ -58,7 +58,7 @@ class App extends Component {
           <meta property="og:image" content={contentImage} />
           <meta property="og:image:width" content="1200" />
           <meta property="og:image:height" content="1200" />
-          <meta name="twitter:card" content="summary" />
+          <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:site" content="@im_jacobf" />
           <meta name="twitter:title" content={contentTitle} />
           <meta name="twitter:description" content="Generated with Gradients by Jacob Foster" />
