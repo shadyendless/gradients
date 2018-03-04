@@ -49,6 +49,8 @@ class App extends Component {
       <div class="site-wrapper is-flex flex-column">
         <Helmet>
           <meta property="og:image" content={content} />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="1200" />
         </Helmet>
         <Navigation fontColor={navColor} />
         <GradientHeader gradient={gradient}
