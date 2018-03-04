@@ -9,7 +9,7 @@ const GradientDisplay = ({ backgroundColor, isFixed, gradient, navColor, randomi
             <button class="randomize-color" style={{ color: navColor }} onClick={randomizeBackgroundColor}>
                 <i class="fas fa-random"></i>
             </button>
-            <CopyButton copyText={`https://gradients.jacob-foster.com/?${encodeURIComponent(backgroundColor.replace(/\s/g, ''))}`}
+            <CopyButton copyText={`https://gradients.jacob-foster.com/?${encodeURIComponent(backgroundColor.replace(/\s/g, '').replace(/\#/g, ''))}`}
                 tooltipText="Link Copied!"
                 btnClass="share-button"
                 btnColor={navColor}>
