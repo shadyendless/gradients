@@ -47,7 +47,7 @@ class App extends Component {
 
     const contentImage = `http://do.jacob-foster.com/gradient?start=${gradientStart.toHex()}&end=${gradientEnd.toHex()}`;
     const contentTitle = `#${gradientStart.toHex().toUpperCase()} to #${gradientEnd.toHex().toUpperCase()}`;
-    const contentUrl = `https://gradients.jacob-foster.com#${backgroundColor.replace(/\s/g, '')}`;
+    const contentUrl = `https://gradients.jacob-foster.com/?${backgroundColor.replace(/\s/g, '')}`;
 
     return (
       <div class="site-wrapper is-flex flex-column">
