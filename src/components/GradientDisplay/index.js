@@ -1,4 +1,5 @@
 import React from 'react';
+import CopyButton from '../CopyButton';
 
 const GradientDisplay = ({ backgroundColor, isFixed, gradient, navColor, randomizeBackgroundColor, setBackgroundColor }) => (
     <div class={`gradient-display ${isFixed ? 'fixed' : ''}`} style={{ background: gradient }}>
@@ -8,6 +9,12 @@ const GradientDisplay = ({ backgroundColor, isFixed, gradient, navColor, randomi
             <button class="randomize-color" style={{ color: navColor }} onClick={randomizeBackgroundColor}>
                 <i class="fas fa-sync"></i>
             </button>
+            <CopyButton copyText={`https://www.jacob-foster.com/gradients#${backgroundColor}`}
+                tooltipText="Link Copied!"
+                btnClass="share-button"
+                btnColor={navColor}>
+                <i class="fas fa-link"></i>
+            </CopyButton>
         </div>
     </div>
 );

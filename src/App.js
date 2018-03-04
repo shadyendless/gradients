@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import InUse from './components/InUse';
 import Footer from './components/Footer';
 import Navigation from './components/Navigation';
-import GradientCode from './components/GradientCode';
+import CopyBox from './components/CopyBox';
 import GradientHeader from './components/GradientHeader';
 import { calculateTextColor, calculateGradient, getInitialBackgroundColor, toFormatString } from './utils';
 
@@ -49,7 +49,8 @@ class App extends Component {
           navColor={navColor}
           setBackgroundColor={this.setBackgroundColor}
           randomizeBackgroundColor={this.randomizeBackgroundColor} />
-        <GradientCode gradient={gradient} />
+        <CopyBox copyText={gradient} tooltipText="Code Copied!" />
+        <h1 class="header">In Use</h1>
         <InUse gradient={gradient} navColor={navColor} />
         <Footer gradient={gradient} navColor={navColor} />
       </div >
