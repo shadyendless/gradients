@@ -16,7 +16,9 @@
         }
 
         &:hover,
+        &:focus,
         &.active {
+            color: $dark;
             font-weight: bold;
             opacity: 1;
         }
