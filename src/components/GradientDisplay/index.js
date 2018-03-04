@@ -7,7 +7,7 @@ const GradientDisplay = ({ backgroundColor, isFixed, gradient, navColor, randomi
         <div class="input-wrapper">
             <input spellCheck="false" autoComplete="false" class="color-input" style={{ color: navColor }} type="text" value={backgroundColor} onChange={(event) => setBackgroundColor(event.target.value)} />
             <button class="randomize-color" style={{ color: navColor }} onClick={randomizeBackgroundColor}>
-                <i class="fas fa-sync"></i>
+                <i class="fas fa-random"></i>
             </button>
             <CopyButton copyText={`https://gradients.jacob-foster.com/?${backgroundColor.replace(/\s/g, '')}`}
                 tooltipText="Link Copied!"
