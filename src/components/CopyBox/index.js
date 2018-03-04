@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import CopyButton from '../CopyButton';
 
 const CopyBox = ({ copyText, tooltipText }) => (
-    <div class="gradient-code">
+    <div class="copy-box">
         {copyText}
         <CopyButton copyText={copyText} tooltipText={tooltipText} btnClass="copy-button">
             <i class="far fa-copy"></i>

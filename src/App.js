@@ -1,10 +1,11 @@
 import tinycolor from 'tinycolor2';
 import { Helmet } from 'react-helmet';
 import InUse from './components/InUse';
-import Footer from './components/Footer';
 import React, { Component } from 'react'
+import Footer from './components/Footer';
 import CopyBox from './components/CopyBox';
 import Navigation from './components/Navigation';
+import FormatChanger from './components/FormatChanger';
 import GradientHeader from './components/GradientHeader';
 import { calculateTextColor, calculateGradient, getGradientEnd, getInitialBackgroundColor, toFormatString } from './utils';
 
@@ -24,6 +25,13 @@ class App extends Component {
     this.setState((prevState, props) => ({
       backgroundColor: tinycolor.random()[formatString]()
     }));
+  };
+
+  changeFormat = (newFormat) => {
+    const formatMethod = `to${newFormat[0].toUpperCase()}${newFormat.substr(1)}String`;
+    this.setBackgroundColor(
+      tinycolor(this.state.backgroundColor)[formatMethod]()
+    );
   };
 
   componentDidMount() {
@@ -70,6 +78,7 @@ class App extends Component {
           navColor={navColor}
           setBackgroundColor={this.setBackgroundColor}
           randomizeBackgroundColor={this.randomizeBackgroundColor} />
+        <FormatChanger originalFormat={gradientStart.getFormat()} changeFormat={this.changeFormat} />
         <CopyBox copyText={gradient} tooltipText="Code Copied!" />
         <h1 class="header">In Use</h1>
         <InUse gradient={gradient} navColor={navColor} />

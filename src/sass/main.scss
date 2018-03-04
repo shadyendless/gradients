@@ -6,10 +6,10 @@
 
 @import 'general';
 @import 'nav';
-@import 'components/copy_button';
 @import 'footer';
 @import 'in_use';
 
+@import 'components/copy_box';
+@import 'components/copy_button';
+@import 'components/format_changer';
 @import 'components/gradient_header';
-
-@import 'frontpage';
