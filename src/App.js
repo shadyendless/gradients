@@ -33,8 +33,8 @@ class App extends Component {
       }
     });
 
-    if (window.location.hash !== '') {
-      this.setBackgroundColor(getInitialBackgroundColor(window.location.hash));
+    if (window.location.search !== '') {
+      this.setBackgroundColor(getInitialBackgroundColor(window.location.search.substr(1)));
     }
   };
 
